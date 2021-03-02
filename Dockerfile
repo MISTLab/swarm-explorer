@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends libopenni2-dev 
     apt-get install -y --no-install-recommends python-catkin-tools && \
     rm -rf /var/lib/apt/lists/*
 
-# mb_planning
+# gb_planning
 RUN apt update && apt install -y \
     libproj-dev \
     protobuf-compiler \
@@ -20,15 +20,16 @@ RUN apt update && apt install -y \
 
 ARG UPDATE=0
 
-RUN git clone https://git.mistlab.ca/vvaradharajan/mb_planning_ws &&\
-    cd mb_planning_ws &&\
+RUN git clone https://git.mistlab.ca/vvaradharajan/gbplanner_ws &&\
+    cd gbplanner_ws &&\
     wstool init &&\
-    wstool merge packages_no_sim_https.rosinstall &&\
+    wstool merge packages_https_no_sim.rosinstall &&\
     wstool update &&\
+    apt update &&\
     rosdep install --from-paths src --ignore-src -r -y
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-RUN cd mb_planning_ws &&\
+RUN cd gbplanner_ws &&\
     source /opt/ros/melodic/setup.bash &&\
     catkin build
