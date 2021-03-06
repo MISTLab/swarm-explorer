@@ -16,7 +16,13 @@ RUN apt update && apt install -y \
     libprotobuf-dev \
     libyaml-cpp-dev \
     autoconf \
-    libtool m4 automake
+    libtool m4 automake && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN \
+  apt-get update && \
+  apt-get -y install libgl1-mesa-glx libgl1-mesa-dri && \
+  rm -rf /var/lib/apt/lists/*
 
 ARG UPDATE=0
 
@@ -35,4 +41,3 @@ RUN cd gbplanner_ws &&\
     catkin build
 
 RUN echo "export ROS_MASTER_URI=http://192.168.12.12:11311; source /gbplanner_ws/devel/setup.bash" > ~/.bashrc
-
