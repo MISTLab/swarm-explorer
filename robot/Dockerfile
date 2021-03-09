@@ -18,6 +18,9 @@ RUN apt update && apt install -y \
     autoconf \
     libtool m4 automake
 
+# Edition tools
+RUN apt update && apt install -y nano
+
 ARG UPDATE=0
 
 RUN git clone https://git.mistlab.ca/vvaradharajan/gbplanner_ws &&\
@@ -35,7 +38,3 @@ RUN cd gbplanner_ws &&\
     catkin build
 
 RUN echo "export ROS_MASTER_URI=http://192.168.12.12:11311; source /gbplanner_ws/devel/setup.bash" > ~/.bashrc
-
-apt-get install software-properties-common
-sudo add-apt-repository ppa:kisak/kisak-mesa
-sudo apt-get dist-upgrade
