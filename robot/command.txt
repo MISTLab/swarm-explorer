@@ -1,0 +1,2 @@
+roslaunch ouster_ros ouster.launch sensor_hostname:=os-992039000794.local udp_dest:=10.42.0.1
+
