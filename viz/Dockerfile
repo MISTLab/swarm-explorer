@@ -40,4 +40,10 @@ RUN cd gbplanner_ws &&\
     source /opt/ros/melodic/setup.bash &&\
     catkin build
 
-RUN echo "export ROS_MASTER_URI=http://192.168.12.12:11311; source /gbplanner_ws/devel/setup.bash" > ~/.bashrc
+RUN echo "export ROS_MASTER_URI=http://192.168.12.12:11311; export ROS_IP=192.168.12.11; source /gbplanner_ws/devel/setup.bash" > ~/.bashrc
+
+# nvidia-container-runtime
+ENV NVIDIA_VISIBLE_DEVICES \
+    ${NVIDIA_VISIBLE_DEVICES:-all}
+ENV NVIDIA_DRIVER_CAPABILITIES \
+    ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
