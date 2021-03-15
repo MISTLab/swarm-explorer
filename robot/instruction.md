@@ -1,1 +1,1 @@
-docker run --net=host -it lajoiepy/swarm-explorer
+docker run --net=host -it lajoiepy/swarm-explorer:arm64

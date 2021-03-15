@@ -37,4 +37,11 @@ RUN cd gbplanner_ws &&\
     source /opt/ros/melodic/setup.bash &&\
     catkin build
 
-RUN echo "export ROS_MASTER_URI=http://192.168.12.12:11311; source /gbplanner_ws/devel/setup.bash" > ~/.bashrc
+ARG REPULL=0
+RUN cd gbplanner_ws &&\
+    cd src/exploration/gbplanner_ros &&\
+    git pull origin master &&\
+    source /opt/ros/melodic/setup.bash &&\
+    catkin build
+
+RUN echo "export ROS_MASTER_URI=http://192.168.12.12:11311; export ROS_IP=192.168.12.12; source /gbplanner_ws/devel/setup.bash" > ~/.bashrc
