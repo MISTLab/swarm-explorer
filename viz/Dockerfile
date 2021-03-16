@@ -40,8 +40,5 @@ RUN cd gbplanner_ws &&\
     source /opt/ros/melodic/setup.bash &&\
     catkin build
 
-RUN echo "export ROS_MASTER_URI=http://192.168.12.12:11311; export ROS_IP=192.168.12.11; source /gbplanner_ws/devel/setup.bash" > ~/.bashrc
-
-RUN mkdir  /usr/share/X11/xorg.conf.d/
-RUN touch /usr/share/X11/xorg.conf.d/20-intel.conf
-RUN echo "Section \"Device\"\n  Identifier  \"Intel Graphics\"\n  Driver      \"intel\"\nEndSection" > /usr/share/X11/xorg.conf.d/20-intel.conf
+RUN mv gbplanner_ws/src/exploration/gbplanner_ros/gbplanner/config/rviz/mist.rviz .
+RUN echo "export ROS_MASTER_URI=http://192.168.12.100:11311; export ROS_IP=192.168.12.200; source /gbplanner_ws/devel/setup.bash" > ~/.bashrc
