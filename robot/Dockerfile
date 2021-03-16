@@ -44,4 +44,4 @@ RUN cd gbplanner_ws &&\
     source /opt/ros/melodic/setup.bash &&\
     catkin build
 
-RUN echo "export ROS_MASTER_URI=http://192.168.12.12:11311; export ROS_IP=192.168.12.12; source /gbplanner_ws/devel/setup.bash" > ~/.bashrc
+RUN echo "export ROS_MASTER_URI=http://192.168.12.100:11311; export ROS_IP=192.168.12.100; source /gbplanner_ws/devel/setup.bash" > ~/.bashrc
