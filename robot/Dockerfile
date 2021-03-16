@@ -47,4 +47,4 @@ RUN cd gbplanner_ws &&\
 RUN echo "export ROS_MASTER_URI=http://192.168.12.100:11311; export ROS_IP=192.168.12.100; source /gbplanner_ws/devel/setup.bash" > ~/.bashrc
 
 RUN git config --global user.name "Pierre-Yves Lajoie" &&\
-    git config --global user.email "lajoie.py@gmail.com"
+    git config --global user.email "pierre-yves.lajoie@polymtl.ca"
