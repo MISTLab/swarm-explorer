@@ -42,8 +42,6 @@ RUN cd gbplanner_ws &&\
 
 RUN echo "export ROS_MASTER_URI=http://192.168.12.12:11311; export ROS_IP=192.168.12.11; source /gbplanner_ws/devel/setup.bash" > ~/.bashrc
 
-# nvidia-container-runtime
-ENV NVIDIA_VISIBLE_DEVICES \
-    ${NVIDIA_VISIBLE_DEVICES:-all}
-ENV NVIDIA_DRIVER_CAPABILITIES \
-    ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
+RUN mkdir  /usr/share/X11/xorg.conf.d/
+RUN touch /usr/share/X11/xorg.conf.d/20-intel.conf
+RUN echo "Section \"Device\"\n  Identifier  \"Intel Graphics\"\n  Driver      \"intel\"\nEndSection" > /usr/share/X11/xorg.conf.d/20-intel.conf
