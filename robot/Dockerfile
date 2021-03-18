@@ -26,7 +26,7 @@ ARG UPDATE=0
 RUN git clone https://git.mistlab.ca/vvaradharajan/gbplanner_ws &&\
     cd gbplanner_ws &&\
     wstool init &&\
-    wstool merge packages_https_no_sim.rosinstall &&\
+    wstool merge packages_https_no_sim_rover.rosinstall &&\
     wstool update &&\
     apt update &&\
     rosdep install --from-paths src --ignore-src -r -y
