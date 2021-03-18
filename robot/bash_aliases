@@ -1,6 +1,7 @@
 alias ptpstatus='sudo systemctl status ptp4l'
 alias ptprestart='systemctl daemon-reload; sudo systemctl restart ptp4l'
 alias lidar='ptprestart; roslaunch ouster_ros ouster.launch sensor_hostname:=os-992039000794.local udp_dest:=10.42.0.1 timestamp_mode:=TIME_FROM_PTP_1588'
-alias cameras='roslaunch realsense2_camera rs_d400_and_t265.launch topic_odom_in:=/rr_openrover_driver/odom_encoder calib_odom_file:=/home/rover/swarm-explorer/robot/config/wheelodom.json'
+alias cameraswheel='roslaunch realsense2_camera rs_d400_and_t265.launch topic_odom_in:=/rr_openrover_driver/odom_encoder calib_odom_file:=/home/rover/swarm-explorer/robot/config/wheelodom.json'
+alias cameras='roslaunch realsense2_camera rs_d400_and_t265.launch'
 alias explorer='docker run --net=host -it lajoiepy/swarm-explorer:arm64'
 alias roverstart='roslaunch rr_openrover_driver starterkit_bringup.launch'
