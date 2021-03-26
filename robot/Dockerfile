@@ -40,7 +40,8 @@ RUN cd gbplanner_ws &&\
 ARG REPULL=0
 RUN cd gbplanner_ws &&\
     cd src/exploration/gbplanner_ros &&\
-    git pull origin master &&\
+    git pull &&\
+    git checkout rover &&\
     cd ../pci_mav &&\
     git pull origin master &&\
     source /opt/ros/melodic/setup.bash &&\
