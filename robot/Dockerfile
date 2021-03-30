@@ -44,6 +44,8 @@ RUN cd gbplanner_ws &&\
     git checkout rover &&\
     cd ../pci_mav &&\
     git pull origin master &&\
+    cd ../target_finder &&\
+    git pull origin master &&\
     source /opt/ros/melodic/setup.bash &&\
     catkin build
 
