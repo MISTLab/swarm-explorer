@@ -35,7 +35,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 RUN cd gbplanner_ws &&\
     source /opt/ros/melodic/setup.bash &&\
-    catkin build
+    catkin build -DCMAKE_BUILD_TYPE=Release
 
 ARG REPULL=0
 RUN cd gbplanner_ws &&\
@@ -47,7 +47,7 @@ RUN cd gbplanner_ws &&\
     cd ../target_finder &&\
     git pull origin master &&\
     source /opt/ros/melodic/setup.bash &&\
-    catkin build
+    catkin build -DCMAKE_BUILD_TYPE=Release
 
 RUN echo "export ROS_MASTER_URI=http://192.168.12.100:11311; export ROS_IP=192.168.12.100; source /gbplanner_ws/devel/setup.bash" > ~/.bashrc
 
