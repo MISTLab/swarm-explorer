@@ -33,6 +33,10 @@ RUN git clone https://git.mistlab.ca/vvaradharajan/gbplanner_ws &&\
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ros-melodic-navigation ros-melodic-pointcloud-to-laserscan && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN cd gbplanner_ws &&\
     source /opt/ros/melodic/setup.bash &&\
     catkin build -DCMAKE_BUILD_TYPE=Release
