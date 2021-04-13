@@ -18,6 +18,22 @@ RUN apt update && apt install -y \
     autoconf \
     libtool m4 automake
 
+#RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
+# ROSBuzz and dependancies
+#RUN apt update && apt install -y ros-melodic-mavros*
+#RUN git clone https://github.com/MISTLab/Buzz buzz &&\
+#    cd buzz &&\
+#    mkdir build && cd build &&\
+#    cmake ../src &&\
+#    make install &&\
+#    ldconfig
+
+#RUN git clone --branch ros_drones_ws https://git.mistlab.ca/dasto/drones.git/ drones
+#RUN cd drones &&\
+#    source /opt/ros/melodic/setup.bash &&\
+#    ./build_spiri.sh
+
 # Edition tools
 RUN apt update && apt install -y nano
 
@@ -53,7 +69,9 @@ RUN cd gbplanner_ws &&\
     source /opt/ros/melodic/setup.bash &&\
     catkin build -DCMAKE_BUILD_TYPE=Release
 
-RUN echo "export ROS_MASTER_URI=http://192.168.12.100:11311; export ROS_IP=192.168.12.100; source /gbplanner_ws/devel/setup.bash" > ~/.bashrc
+COPY entrypoint.sh /root/entrypoint.sh
+RUN chmod +x /root/entrypoint.sh
+ENTRYPOINT ["/root/entrypoint.sh"]
 
 RUN git config --global user.name "Pierre-Yves Lajoie" &&\
     git config --global user.email "pierre-yves.lajoie@polymtl.ca"
