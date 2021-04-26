@@ -38,7 +38,9 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 RUN cd gbplanner_ws &&\
     source /opt/ros/melodic/setup.bash &&\
-    catkin build
+    cd src/exploration/gbplanner_ros &&\
+    git pull && git checkout rover &&\
+    cd ../../.. && catkin build
 
 RUN mv gbplanner_ws/src/exploration/gbplanner_ros/gbplanner/config/rviz/mist.rviz .
-RUN echo "export ROS_MASTER_URI=http://192.168.12.100:11311; export ROS_IP=192.168.12.200; source /gbplanner_ws/devel/setup.bash" > ~/.bashrc
+RUN echo "export ROS_MASTER_URI=http://192.168.143.125:11311; export ROS_IP=192.168.143.200; source /gbplanner_ws/devel/setup.bash" > ~/.bashrc
