@@ -69,9 +69,9 @@ RUN cd gbplanner_ws &&\
     source /opt/ros/melodic/setup.bash &&\
     catkin build -DCMAKE_BUILD_TYPE=Release
 
-COPY entrypoint.sh /root/entrypoint.sh
-RUN chmod +x /root/entrypoint.sh
-ENTRYPOINT ["/root/entrypoint.sh"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 
 RUN git config --global user.name "Pierre-Yves Lajoie" &&\
     git config --global user.email "pierre-yves.lajoie@polymtl.ca"
