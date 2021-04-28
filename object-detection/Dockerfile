@@ -150,4 +150,8 @@ RUN cd sensing-ws && source /opt/ros/melodic/setup.bash &&\
 RUN git config --global user.name "Pierre-Yves Lajoie" &&\
     git config --global user.email "pierre-yves.lajoie@polymtl.ca"
 
-COPY yolov3.weights sensing-ws/src/object-detection/config/darknet_resources/weights/yolov3.weights
+COPY yolov3.weights /sensing-ws/install/share/object_detection/config/darknet_resources/weights/yolov3.weights
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
