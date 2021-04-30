@@ -17,6 +17,8 @@
 
 - Install camera driver: `sudo apt install ros-melodic-realsense2-camera` 
 
+- Avoid using sudo for docker: `sudo groupadd docker && sudo usermod -aG docker $USER`
+
 # Networking
 
 - Install batman-adv: download the alfred, batctl and batman-adv sources from
