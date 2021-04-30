@@ -44,7 +44,7 @@ auto lo
 iface lo inet loopback
 ```
 
-- `sudo systemctl status batman-cl@wlan0`, then reboot.
+- `sudo systemctl enable batman-cl@wlan0`, then `sudo systemctl start batman-cl@wlan0`.
 
 - Add IP infos for ROS in `~/.bashrc`: Append the following lines: 
 ```
@@ -55,7 +55,7 @@ export ROS_IP=192.168.143.125
 export ROS_MASTER_URI=http://192.168.143.125:11311
 ```
 
-- Replace `192.168.143.125` with the bat0 IP address in `~/.bashrc` and `robot/entrypoint.sh`
+- Replace `192.168.143.125` with the bat0 IP address. Make the changes in `~/.bashrc` and `robot/entrypoint.sh`
 
 # Containers
 
