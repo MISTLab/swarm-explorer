@@ -11,8 +11,10 @@
 
 - Rename the default ROS workspace: `mv ~/catkin_ws ~/drivers_ws`
 
+- Install catkin tools `sudo apt-get install -y --no-install-recommends python-catkin-tools`
+
 - Install lidar driver: clone `https://github.com/ouster-lidar/ouster_example`
-  into the src folder of the ROS workspace, then run `source /opt/ros/melodic/setup.bash; catkin clean -y; catkin build`
+  into the src folder of the ROS workspace, then run `sudo apt install ros-melodic-pcl-ros` then `source /opt/ros/melodic/setup.bash; catkin clean -y; catkin build`
 
 - Install camera driver: `sudo apt install ros-melodic-realsense2-camera` 
 
