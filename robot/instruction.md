@@ -30,7 +30,7 @@
 unmanaged-devices=wlan0
 ```
 
-- Change hostname to rover1, rover2, etc. Edit `/etc/hostname`
+- Change hostname to rover0, rover1, rover2, etc. Edit `/etc/hostname`
 
 - `sudo cp /home/rover/swarm-explorer/robot/config/copymac.sh
   /usr/local/bin/copymac.sh`
