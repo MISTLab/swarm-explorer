@@ -2,8 +2,7 @@
 
 - Clone this repo in `/home/rover`
 
-- Copy `robot/bash_aliases` file to `~/.bash_aliases`: run `cp
-  /home/rover/robot/bash_aliases ~/.bash_aliases`
+- Copy `robot/bash_aliases` file to `~/.bash_aliases`: run `cp /home/rover/swarm-explorer/robot/bash_aliases ~/.bash_aliases`
 
 - NVIDIA AGX - Use max power: run `sudo nvpmodel -m 0`
 
