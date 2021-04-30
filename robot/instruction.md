@@ -43,7 +43,7 @@ auto lo
 iface lo inet loopback
 ```
 
-- `sudo systemctl enable batman-cl@wlan0`, then `sudo systemctl start batman-cl@wlan0`.
+- `sudo systemctl enable batman-cl@wlan0`, then reboot.
 
 - Add IP infos for ROS in `~/.bashrc`: Append the following lines: 
 ```
