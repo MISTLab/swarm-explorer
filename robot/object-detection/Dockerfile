@@ -45,8 +45,8 @@ RUN apt-get update -y && apt-get install -y \
     xsltproc \
     libgtest-dev \
     iputils-ping iproute2 \
-&& rm -rf /var/lib/apt/lists/* \
-&& apt-get clean
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
 
 
 #
@@ -64,8 +64,8 @@ RUN apt-get update -y && apt-get install -y \
     python3-sip-dev \
     pyqt5-dev-tools \
     python-catkin-pkg \
-&& rm -rf /var/lib/apt/lists/* \
-&& apt-get clean
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
 
 # Install python3 equivalent packages for ros
 RUN pip3 install pip --upgrade
@@ -76,7 +76,9 @@ RUN pip install -U catkin_pkg
 
 # Install packages to build ros using python 3
 RUN apt-get update -y && apt-get install -y \ 
-    python3-rosinstall build-essential
+    python3-rosinstall build-essential \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
 RUN pip3 uninstall vcstools -y
 
 # Use ONLY this specific version of vcstool
@@ -88,16 +90,17 @@ RUN rm -rf /etc/ros/rosdep/sources.list.d/* \
 && rosdep init \
 && rosdep update
 
-# Link python 3 dist to site pckgs
+# Link python 3 dist to site pckgs and Get and compile all melodic pckgs
 RUN ln -s /usr/local/lib/python3.6/dist-packages /usr/local/lib/python3.6/site-packages
-RUN apt-get update && apt-get install -y python-catkin-pkg python-rosdep
-# Get and compile all melodic pckgs
-RUN mkdir ~/catkin_ws && cd ~/catkin_ws \  
-&& rosinstall_generator perception --rosdistro melodic --deps --tar > melodic-desktop.rosinstall \
-&& wstool init -j8 src melodic-desktop.rosinstall \ 
-&& rosdep install --skip-keys python-catkin-pkg-modules --skip-keys python-rosdep-modules --from-paths src --ignore-src --rosdistro melodic -y \
-&& export PYTHONPATH=/usr/local/lib/python3.6/dist-packages \
-&& ./src/catkin/bin/catkin_make_isolated --install --install-space /opt/ros/melodic -DPYTHON_EXECUTABLE=/usr/bin/python3 -DCMAKE_BUILD_TYPE=Release
+RUN apt-get update && apt-get install -y python-catkin-pkg python-rosdep &&\
+    mkdir ~/catkin_ws && cd ~/catkin_ws \  
+    && rosinstall_generator perception --rosdistro melodic --deps --tar > melodic-desktop.rosinstall \
+    && wstool init -j8 src melodic-desktop.rosinstall \ 
+    && rosdep install --skip-keys python-catkin-pkg-modules --skip-keys python-rosdep-modules --from-paths src --ignore-src --rosdistro melodic -y \
+    && export PYTHONPATH=/usr/local/lib/python3.6/dist-packages \
+    && ./src/catkin/bin/catkin_make_isolated --install --install-space /opt/ros/melodic -DPYTHON_EXECUTABLE=/usr/bin/python3 -DCMAKE_BUILD_TYPE=Release \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
 
 # you MUST source the ros env or it will not work -> copy the env to bashrc
 RUN echo "source /opt/ros/melodic/setup.sh" >> ~/.bashrc
@@ -135,7 +138,9 @@ RUN echo "source /opt/ros/melodic/setup.sh" >> ~/.bashrc
 #RUN /bin/bash -c ". ${ros_ws}/devel/setup.bash"
 
 # Edition tools
-RUN apt update && apt install -y nano git
+RUN apt update && apt install -y nano git \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
