@@ -1,0 +1,28 @@
+[Unit]
+Description=Mesh creation
+Wants=network.target sys-subsystem-net-devices-wlan0.device
+After=sys-subsystem-net-devices-wlan0.device
+
+[Service]
+RemainAfterExit=yes
+ExecStartPre=/sbin/modprobe batman-adv
+ExecStartPre=/sbin/ip link set down dev %I
+ExecStartPre=/sbin/iw %I set type ibss
+ExecStartPre=/sbin/ip link set up mtu 1560 dev %I
+ExecStartPre=/sbin/iw %I ibss join NVIDIA 2432 ca:92:26:4b:32:5a 
+ExecStartPre=/usr/local/sbin/batctl if add %I
+ExecStartPre=/sbin/ip link set bat0 up
+#ExecStartPre=/usr/local/sbin/batctl gw_mode client
+ExecStartPre=/usr/local/bin/copymac.sh %I
+ExecStart=/sbin/dhclient -4 -v -pf /run/dhclient.bat0.pid -lf /var/lib/dhcp/dhclient.bat0.leases bat0
+ExecStop=/sbin/ip link set %I down
+ExecStop=/sbin/ip addr flush dev %I
+ExecStop=/sbin/iw %I set type managed
+ExecStop=/sbin/rmmod batman-adv
+ExecStop=/sbin/ip link set mtu 1500 dev %I
+ExecStop=/sbin/ip link del mesh-bridge
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
