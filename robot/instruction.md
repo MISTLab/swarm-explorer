@@ -7,8 +7,6 @@
 
 - NVIDIA AGX - Use max power: run `sudo nvpmodel -m 0`
 
-- Change hostname to rover1, rover2, etc. Edit `/etc/hostname`
-
 - `cp /home/rover/robot/object-detection/txdocker /usr/local/bin/`
 
 - Rename the default ROS workspace: `mv ~/catkin_ws ~/drivers_ws`
@@ -29,6 +27,8 @@
 [keyfile]
 unmanaged-devices=wlan0
 ```
+
+- Change hostname to rover1, rover2, etc. Edit `/etc/hostname`
 
 - `sudo cp /home/rover/swarm-explorer/robot/config/copymac.sh
   /usr/local/bin/copymac.sh`
