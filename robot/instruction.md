@@ -19,6 +19,8 @@
 
 - Avoid using sudo for docker: `sudo groupadd docker && sudo usermod -aG docker $USER`
 
+- In `rr_openrover_stack` located in the `drivers_ws` run: `git remote add mist https://github.com/lajoiepy/rr_openrover_stack.git` then `git pull mist willr/feature/drivertrim`
+
 # Networking
 
 - Install batman-adv: download the alfred, batctl and batman-adv sources from
