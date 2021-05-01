@@ -2,8 +2,7 @@
 
 - Clone this repo in `/home/rover`
 
-- Copy `robot/bash_aliases` file to `~/.bash_aliases`: run `cp
-  /home/rover/robot/bash_aliases ~/.bash_aliases`
+- Copy `robot/bash_aliases` file to `~/.bash_aliases`: run `cp /home/rover/swarm-explorer/robot/bash_aliases ~/.bash_aliases`
 
 - NVIDIA AGX - Use max power: run `sudo nvpmodel -m 0`
 
@@ -18,6 +17,8 @@
 
 - Install camera driver: `sudo apt install ros-melodic-realsense2-camera` 
 
+- Avoid using sudo for docker: `sudo groupadd docker && sudo usermod -aG docker $USER`
+
 # Networking
 
 - Install batman-adv: download the alfred, batctl and batman-adv sources from
@@ -30,7 +31,7 @@
 unmanaged-devices=wlan0
 ```
 
-- Change hostname to rover1, rover2, etc. Edit `/etc/hostname`
+- Change hostname to rover0, rover1, rover2, etc. Edit `/etc/hostname`
 
 - `sudo cp /home/rover/swarm-explorer/robot/config/copymac.sh
   /usr/local/bin/copymac.sh`
@@ -44,7 +45,7 @@ auto lo
 iface lo inet loopback
 ```
 
-- `sudo systemctl status batman-cl@wlan0`, then reboot.
+- `sudo systemctl enable batman-cl@wlan0`, then reboot.
 
 - Add IP infos for ROS in `~/.bashrc`: Append the following lines: 
 ```
@@ -55,7 +56,7 @@ export ROS_IP=192.168.143.125
 export ROS_MASTER_URI=http://192.168.143.125:11311
 ```
 
-- Replace `192.168.143.125` with the bat0 IP address in `~/.bashrc` and `robot/entrypoint.sh`
+- Replace `192.168.143.125` with the bat0 IP address. Make the changes in `~/.bashrc` and `robot/entrypoint.sh`
 
 # Containers
 
