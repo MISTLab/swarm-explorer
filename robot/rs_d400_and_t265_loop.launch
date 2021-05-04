@@ -19,6 +19,10 @@
   <arg name="calib_odom_file"           default=""/>
 
   <group ns="$(arg camera1)">
+    <rosparam param="tracking_module/enable_mapping" subst_value="true">true</rosparam>
+    <rosparam param="tracking_module/enable_relocalization" subst_value="true">true</rosparam>    
+    <rosparam param="tracking_module/enable_pose_jumping" subst_value="true">true</rosparam>
+    <rosparam param="tracking_module/enable_map_preservation" subst_value="true">true</rosparam>
     <include file="$(find realsense2_camera)/launch/includes/nodelet.launch.xml">
       <arg name="device_type"           value="$(arg device_type_camera1)"/>
       <arg name="serial_no"             value="$(arg serial_no_camera1)"/>

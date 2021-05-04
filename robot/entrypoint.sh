@@ -17,6 +17,11 @@ case "$1" in
             ros2 run ros1_bridge dynamic_bridge --bridge-all-1to2-topics
             ;; 
 
+        testros2)
+            source /opt/ros/dashing/setup.bash
+            ros2 run demo_nodes_cpp talker
+            ;;
+
         bash)
             /bin/bash
             ;;
