@@ -60,6 +60,8 @@ export ROS_MASTER_URI=http://192.168.143.125:11311
 
 - Replace `192.168.143.125` with the bat0 IP address. Make the changes in `~/.bashrc` and `robot/entrypoint.sh`
 
+- Write the robot ID in the `~\.bash_aliases`
+
 # Containers
 
 - In `robot/`, run : `docker build . --tag lajoiepy/swarm-explorer:arm64`
