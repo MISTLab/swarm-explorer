@@ -8,7 +8,7 @@ source /gbplanner_ws/devel/setup.bash
 
 case "$1" in
         explore)
-            roslaunch gbplanner rover_outdoor.launch
+            roslaunch gbplanner rover_outdoor.launch robot_id:=$2
             ;;
 
         bridge)
