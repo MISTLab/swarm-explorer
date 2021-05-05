@@ -152,15 +152,17 @@ RUN cd sensing-ws && source /opt/ros/melodic/setup.bash &&\
     catkin config --install &&\
     catkin build
 
+COPY yolov3.weights /sensing-ws/install/share/object_detection/config/darknet_resources/weights/yolov3.weights
+
 ADD https://api.github.com/repos/lajoiepy/object-detection/git/refs/heads/master version.json
 
 RUN cd sensing-ws && source /opt/ros/melodic/setup.bash &&\   
+    cd src/object-detection &&\
+    git pull origin master &&\
     catkin build
 
 RUN git config --global user.name "Pierre-Yves Lajoie" &&\
     git config --global user.email "pierre-yves.lajoie@polymtl.ca"
-
-COPY yolov3.weights /sensing-ws/install/share/object_detection/config/darknet_resources/weights/yolov3.weights
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
