@@ -152,6 +152,11 @@ RUN cd sensing-ws && source /opt/ros/melodic/setup.bash &&\
     catkin config --install &&\
     catkin build
 
+ADD https://api.github.com/repos/lajoiepy/object-detection/git/refs/heads/master version.json
+
+RUN cd sensing-ws && source /opt/ros/melodic/setup.bash &&\   
+    catkin build
+
 RUN git config --global user.name "Pierre-Yves Lajoie" &&\
     git config --global user.email "pierre-yves.lajoie@polymtl.ca"
 
