@@ -54,5 +54,5 @@
       <arg name="enable_infra2"         value="false"/>
     </include>
   </group>
-  <node pkg="tf" type="static_transform_publisher" name="t265_to_d400" args="0 0 0 0 0 0 /$(arg tf_prefix_camera1)_link /$(arg tf_prefix_camera2)_link 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="r$(arg robot_id)_t265_to_d400" args="0 0 0 0 0 0 /$(arg tf_prefix_camera1)_link /$(arg tf_prefix_camera2)_link 100"/>
 </launch>
