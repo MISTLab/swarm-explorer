@@ -66,7 +66,7 @@ export ROS_MASTER_URI=http://192.168.143.125:11311
 
 - In `robot/`, run : `docker build . --tag lajoiepy/swarm-explorer:arm64`
 
-- In `robot/object-detection/`, run : `wget https://pjreddie.com/media/files/yolov3.weights`then `docker build . --tag object-detection`
+- In `robot/object-detection/`, run : `wget https://pjreddie.com/media/files/yolov3.weights`then `docker build . --tag lajoiepy/object-detection`
 # How to run
 
 All the important commands have an alias in `~/.bash_aliases`.

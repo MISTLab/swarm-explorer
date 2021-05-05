@@ -14,5 +14,5 @@ alias exposureoff='rosrun dynamic_reconfigure dynparam set /d400/rgb_camera enab
 alias plan='rosservice call /planner_control_interface/std_srvs/automatic_planning'
 alias explorer='docker run --net=host -it lajoiepy/swarm-explorer:arm64 explore $ROBOT_ID'
 alias ros2bridge='docker run --net=host -it lajoiepy/swarm-explorer:arm64 bridge'
-alias objects='docker run --net=host -it object-detection $ROBOT_ID'
+alias objects='docker run --net=host -it lajoiepy/object-detection $ROBOT_ID'
 alias testros2='docker run --net=host -it lajoiepy/swarm-explorer:arm64 testros2'
