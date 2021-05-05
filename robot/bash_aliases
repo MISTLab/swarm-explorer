@@ -6,7 +6,7 @@ alias lidar='ptprestart; roslaunch /home/rover/swarm-explorer/robot/ouster.launc
 alias cameraswheel='roslaunch realsense2_camera rs_d400_and_t265.launch topic_odom_in:=/rr_openrover_driver/odom_encoder calib_odom_file:=/home/rover/swarm-explorer/robot/config/wheelodom.json'
 alias cameras='roslaunch /home/rover/swarm-explorer/robot/rs_d400_and_t265.launch robot_id:=$ROBOT_ID'
 alias explorerbash='docker run --net=host -it lajoiepy/swarm-explorer:arm64 bash'
-alias roverstart='roslaunch rr_openrover_driver rover_no_teleop.launch'
+alias roverstart='roslaunch /home/rover/swarm-explorer/robot/rover_driver.launch robot_id:=$ROBOT_ID'
 alias entercontainer='docker exec -it $(docker container ls -q) /bin/bash'
 alias stop='rostopic pub /soft_estop/enable std_msgs/Bool "data: true" -1'
 alias restart='rostopic pub /soft_estop/reset std_msgs/Bool "data: true" -1'
