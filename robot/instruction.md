@@ -12,6 +12,8 @@
 
 - Install catkin tools `sudo apt-get install -y --no-install-recommends python-catkin-tools`
 
+- Install ptp4l: `sudo apt-get install -y linuxptp`
+
 - Install lidar driver: clone `https://github.com/ouster-lidar/ouster_example`
   into the src folder of the ROS workspace, then run `sudo apt install ros-melodic-pcl-ros` then `source /opt/ros/melodic/setup.bash; catkin clean -y; catkin build`
 
@@ -56,13 +58,12 @@ source ~/drivers_ws/devel/setup.bash
 
 export ROS_IP=192.168.143.125
 export ROS_MASTER_URI=http://192.168.143.125:11311
+export ROBOT_ID=0
+export LIDAR_SERIAL_NUMBER=992039000794
+export LIDAR_IP=10.42.0.1
 ```
 
-- Replace `192.168.143.125` with the bat0 IP address. Make the changes in `~/.bashrc` and `robot/entrypoint.sh`
-
-- Write the lidar serial number in the lidar command of `~\.bash_aliases`
-
-- Write the robot ID in the `~\.bash_aliases`
+- Replace `192.168.143.125` with the bat0 IP address, `0` with the robot ID and `992039000794` with the lidar serial number, and `10.42.0.1` with the lidar ethernet interface IP address. Make the changes in `~/.bashrc`
 
 # Containers
 
