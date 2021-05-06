@@ -74,7 +74,7 @@ export LIDAR_IP=10.42.0.1
 
 All the important commands have an alias in `~/.bash_aliases`.
 
-- `lidar` : launches the ouster lidar
+- `lidar` : launches the ouster lidar (if you have errors look at the [User Manual](https://data.ouster.io/downloads/software-user-manual/software-user-manual-v2p0.pdf) and the [ouster repo](https://github.com/ouster-lidar/ouster_example)
 - `cameras` : launches the cameras
 - `roverstart` : launches the rover controller
 - `explorer` : launches the exploration stack
