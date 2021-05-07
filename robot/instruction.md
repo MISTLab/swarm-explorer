@@ -63,6 +63,7 @@ export ROS_MASTER_URI=http://192.168.143.125:11311
 export ROBOT_ID=0
 export LIDAR_SERIAL_NUMBER=992039000794
 export LIDAR_IP=10.42.0.1
+export MIN_AREA_UPDATE=1000
 ```
 
 - Replace `192.168.143.125` with the bat0 IP address, `0` with the robot ID and `992039000794` with the lidar serial number, and `10.42.0.1` with the lidar ethernet interface IP address. Make the changes in `~/.bashrc`
