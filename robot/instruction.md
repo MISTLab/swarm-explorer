@@ -23,6 +23,8 @@
 
 - In `rr_openrover_stack` located in the `drivers_ws` run: `git remote add mist https://github.com/lajoiepy/rr_openrover_stack.git` then `git checkout willr/feature/drivertrim` then `git pull mist willr/feature/drivertrim` then `cd ../.. && catkin build`
 
+- Place this file https://github.com/IntelRealSense/librealsense/blob/master/config/99-realsense-libusb.rules in `/etc/udev/rules.d/`
+
 # Networking
 
 - Install batman-adv: download the alfred, batctl and batman-adv sources from
