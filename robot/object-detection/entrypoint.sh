@@ -5,4 +5,5 @@ export ROS_IP=$1;
 
 source /sensing-ws/install/setup.bash
 
-rosrun object_detection main robot_id:=$2
+rosparam set robot_id $2
+rosrun object_detection main 
