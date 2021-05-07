@@ -7,7 +7,7 @@ export ROS_IP=$1;
 
 case "$2" in
         explore)
-            roslaunch gbplanner rover_outdoor.launch robot_id:=$3
+            roslaunch gbplanner rover_outdoor.launch robot_id:=$3 min_area_update:=$4
             ;;
 
         bridge)
