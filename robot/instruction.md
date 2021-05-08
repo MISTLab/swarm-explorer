@@ -77,7 +77,7 @@ export MIN_AREA_UPDATE=1000
 
 All the important commands have an alias in `~/.bash_aliases`.
 
-- `lidar` : launches the ouster lidar (if you have errors look at the [User Manual](https://data.ouster.io/downloads/software-user-manual/software-user-manual-v2p0.pdf), the [ouster repo](https://github.com/ouster-lidar/ouster_example) or this [solution](https://github.com/ouster-lidar/ouster_example/issues/137#issuecomment-578435555)
+- `lidar` : launches the ouster lidar (if you have errors look at the [User Manual](https://data.ouster.io/downloads/software-user-guide-v1.13.0.pdf), the [ouster repo](https://github.com/ouster-lidar/ouster_example) or this [solution](https://github.com/ouster-lidar/ouster_example/issues/137#issuecomment-578435555)
 - `cameras` : launches the cameras
 - `roverstart` : launches the rover controller
 - `explorer` : launches the exploration stack
