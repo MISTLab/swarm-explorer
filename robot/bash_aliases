@@ -6,7 +6,7 @@ alias cameras='roslaunch /home/rover/swarm-explorer/robot/rs_d400_and_t265.launc
 alias explorerbash='docker run --net=host -it lajoiepy/swarm-explorer:arm64 $ROS_IP bash'
 alias roverstart='roslaunch /home/rover/swarm-explorer/robot/rover_driver.launch robot_id:=$ROBOT_ID'
 alias entercontainer='docker exec -it $(docker container ls -q) /bin/bash'
-alias stop='rostopic pub /r$ROBOT_ID/soft_estop/enable std_msgs/Bool "data: true" -1'
+alias roverstop='rostopic pub /r$ROBOT_ID/soft_estop/enable std_msgs/Bool "data: true" -1'
 alias restart='rostopic pub /r$ROBOT_ID/soft_estop/reset std_msgs/Bool "data: true" -1'
 alias exposureoff='rosrun dynamic_reconfigure dynparam set /r$(arg robot_id)/d400/rgb_camera enable_auto_exposure 0 && rosrun dynamic_reconfigure dynparam set /r$(arg robot_id)/d400/rgb_camera enable_auto_white_balance 0'
 alias plan='rosservice call /r$ROBOT_ID/planner_control_interface/std_srvs/automatic_planning'
@@ -14,3 +14,4 @@ alias explorer='docker run --net=host -it lajoiepy/swarm-explorer:arm64 $ROS_IP 
 alias ros2bridge='docker run --net=host -it lajoiepy/swarm-explorer:arm64 $ROS_IP bridge'
 alias objects='docker run --net=host -it lajoiepy/object-detection $ROS_IP $ROBOT_ID'
 alias testros2='docker run --net=host -it lajoiepy/swarm-explorer:arm64 $ROS_IP testros2'
+alias stop='rosservice call /r$ROBOT_ID/planner_control_interface/std_srvs/stop'
