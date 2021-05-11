@@ -16,4 +16,5 @@ alias ros2bridge='docker run --net=host -it lajoiepy/swarm-explorer:arm64 $ROS_I
 alias objects='docker run --net=host -it lajoiepy/object-detection $ROS_IP $ROBOT_ID'
 alias testros2='docker run --net=host -it lajoiepy/swarm-explorer:arm64 $ROS_IP testros2'
 alias stop='rosservice call /r$ROBOT_ID/planner_control_interface/std_srvs/stop'
+alias fixlidar='sudo dnsmasq -C /dev/null -kd -F 10.42.0.1,10.42.0.100 -i eth0 --bind-dynamic'
 
