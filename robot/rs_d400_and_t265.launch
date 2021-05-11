@@ -19,7 +19,7 @@
   <arg name="calib_odom_file"           default=""/>
 
   <group ns="$(arg camera1)">
-    <include file="$(find realsense2_camera)/launch/includes/nodelet.launch.xml">
+    <include file="/home/rover/swarm-explorer/robot/nodelet.launch.xml">
       <arg name="device_type"           value="$(arg device_type_camera1)"/>
       <arg name="serial_no"             value="$(arg serial_no_camera1)"/>
       <arg name="tf_prefix"         		value="$(arg tf_prefix_camera1)"/>
@@ -51,5 +51,6 @@
     </include>
   </group>
   <node pkg="tf" type="static_transform_publisher" name="r$(arg robot_id)_t265_to_d400" args="0 0 0 0 0 0 /$(arg tf_prefix_camera1)_link /$(arg tf_prefix_camera2)_link 100"/>
-  <node pkg="tf" type="static_transform_publisher" name="r$(arg robot_id)_pose_frame_t265" args="0 0 0 0 0 0 /$(arg tf_prefix_camera1)_pose_frame /$(arg tf_prefix_camera1)_link 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="r$(arg robot_id)_pose_frame_t265" args="0 0 0 0 0 0 /$(arg tf_prefix_camera1)_pose_frame /$(arg tf_prefix_camera1)_true_link 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="r$(arg robot_id)_t265_mod" args="0 0 0 0 0.0 0 /$(arg tf_prefix_camera1)_true_link /$(arg tf_prefix_camera1)_link 100"/>
 </launch>
