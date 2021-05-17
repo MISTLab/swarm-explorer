@@ -49,6 +49,11 @@ unmanaged-devices=wlan0
 ```
 auto lo
 iface lo inet loopback
+
+auto eth0
+allow-hotplug eth0
+iface eth0 inet static
+  address 10.42.0.1/24
 ```
 
 - `sudo systemctl enable batman-cl@wlan0`, then reboot.
