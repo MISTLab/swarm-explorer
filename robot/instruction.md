@@ -45,11 +45,12 @@ unmanaged-devices=wlan0
 - `sudo cp /home/rover/swarm-explorer/robot/config/batman-cl@.service
   /etc/systemd/system/batman-cl@.service`
 
-- For the LIDAR, make sure `/etc/network/interfaces` contains only:
+- Make sure `/etc/network/interfaces` contains only:
 ```
 auto lo
 iface lo inet loopback
 
+# Lidar interface
 auto eth0
 allow-hotplug eth0
 iface eth0 inet static
